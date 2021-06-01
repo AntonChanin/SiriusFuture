@@ -99,10 +99,19 @@ export const wordsBase = [
 ];
 
 export const getElectedWords = (len:number) => wordsBase.filter(el => el.length <= len);
-export const getRandomEl = (arr: string[]) => arr[Math.round(Math.random() * arr.length)];
-export const getRandomId = (n: number) => {
-  const index = Math.round(Math.random() * n);
-  return index < n ? index : index - 1;
-};
-export const updateWords = (el:string) => wordsBase.splice(wordsBase.indexOf(el), 1);
-export const uniqueWords = (a: string[]) => a.filter((item, pos) =>a.indexOf(item) == pos);
+export const getWords = (arr:any[], wordCount:number) => {
+  return arr.slice(0, wordCount+1).map((word)=>{
+    word = word.split('');
+    let divine = Math.ceil(1 - 0.5 + Math.random() * (word.length-2));
+    let firstPart = word.splice(0, divine).join('');
+    let secondPart = [...word].join(''); 
+    return [firstPart, secondPart];
+  })
+}
+export const getRandomWords = (arr:any[]) => {
+  const result = [];
+  while(arr.length > 0) {
+    result.push(arr.splice(Math.round(0 - 0.5 + Math.random() * (arr.length)),1)[0]);
+  }
+  return result;
+}

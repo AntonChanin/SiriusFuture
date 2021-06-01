@@ -1,6 +1,6 @@
-import React, { FC, useState } from 'react';
+import React, { FC } from 'react';
 import { css } from '@emotion/css';
-import { getElectedWords, getRandomEl, getRandomId, uniqueWords, updateWords } from './environment';
+import { getElectedWords, getRandomWords, getWords } from './environment';
 import { flexCenter } from '../pressets/const';
 
 interface MindGameProps {
@@ -19,44 +19,15 @@ export const MindGame:FC<MindGameProps> =
   interpLen,
   speed,
 }) => {
-  const myWords = uniqueWords(
-    Array(wordCount*2).fill('').map(
-      (x) => x = (
-        getRandomEl(
-          getElectedWords(wordLen)
-        )
-      )
-    )
-  );
-  myWords.length = (wordCount+1);
-  const myUniqueWords = [];
-  // for (let i = 0; (myWords.length && i !== myWords.length-1); i++ ) {
-  //   console.log(myWords[i]?.length)
-  //   const index = getRandomId(myWords[i].length);
-  //   myUniqueWords.push({
-  //     start: `${myWords[i]}`.substring(0, index),
-  //     end: `${myWords[i]}`.substring(index, myWords[i].length),
-  //   })
-  //   console.log(myUniqueWords)
-  // }
- // console.log(myUniqueWords)
 
-  const fakeData = [
-    {
-      start: 'го', 
-      end: 'д',
-    },
-    {
-      start: 'по', 
-      end: 'беда',
-    },
-  ]
+  const words = getWords(getRandomWords(getElectedWords(wordLen)), wordCount);
   return (
     <div className={css`
       ${flexCenter}
       flex-direction: column;
     `
-    }>{fakeData.map((word, i) =>
+    }>{words.map(
+      (word:string[], i) =>
       { 
         return (<div
         key={i}
@@ -87,7 +58,7 @@ export const MindGame:FC<MindGameProps> =
           
         `}
         >
-        {word.start}<div className={css`
+        {word[0]}<div className={css`
           display: inline-flex;
           justify-content: center;
           animation: expansion ${speed}s;
@@ -105,7 +76,7 @@ export const MindGame:FC<MindGameProps> =
               opacity: 1; 
             }
           }
-        `}>~</div>{word.end}
+        `}>~</div>{word[1]}
       </div>)
       })
     }</div>
