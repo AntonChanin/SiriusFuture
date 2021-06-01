@@ -16,4 +16,6 @@ export const ScaledTitle:FC<ScaledTitleProps> =
   font-weight: ${weight};
   font-family: ${family};
   font-size: ${size};
+  margin: auto;
+  width: max-content;
 `}>{`${content}`}</div>);

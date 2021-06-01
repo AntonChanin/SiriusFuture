@@ -2,6 +2,8 @@ import React, { FC } from 'react';
 import { css } from '@emotion/css';
 import { getElectedWords, getRandomWords, getWords } from './environment';
 import { flexCenter } from '../pressets/const';
+import Image from 'next/image';
+import { ScaledTitle } from '../scaled-title/scaled-title.component';
 
 interface MindGameProps {
   wordCount: number;
@@ -79,6 +81,36 @@ export const MindGame:FC<MindGameProps> =
         `}>~</div>{word[1]}
       </div>)
       })
-    }</div>
+    }
+      <div
+        className={css`
+          position: absolute;
+          width: 20%;
+          opacity: 0;
+          animation: see ${speed}s;
+          animation-delay: ${speed*wordCount}s;
+          animation-iteration-count: 1;
+          animation-fill-mode: forwards;
+          animation-timing-function: linear; 
+          @keyframes see {
+            0% {
+              opacity: 0;
+            }
+            100% { 
+              opacity: 1; 
+            }
+          }
+
+      `}
+      >
+        <Image 
+          alt="Picture of the author"
+          width={1000}
+          height={1000}
+          src="/finish.png"
+        />
+        <ScaledTitle size="2rem" color="darkblue" content="Отличная работа!"/>
+      </div>
+    </div>
   )
 };

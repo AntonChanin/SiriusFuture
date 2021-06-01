@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import { useCallback, useState } from 'react';
 import { css } from '@emotion/css';
 import { MindGame } from '../components/mind-game/mind-game';
@@ -68,18 +69,24 @@ function HomePage() {
   </>
   return (
     <>
+      <div
+        className={css`
+          position: absolute;
+          right: 25px;
+          top: 25px;
+          width: 20%;
+      `}
+      >
+        <Image 
+          alt="Picture of the author"
+          width={300}
+          height={150}
+          src="/Sirius_Future_500px.png"
+        />
+      </div>
       {!onStart ? (
         <>
-          <img 
-            className={css`
-              width: 100px;
-              height: 100px;
-              position: absolute;
-              right: 25px;
-              top: 25px;
-            `}
-            src="../components/assets/Sirius_Future_500px.png"
-          />
+          
           <div className={css`
               margin: 50px 0;
             `}>
