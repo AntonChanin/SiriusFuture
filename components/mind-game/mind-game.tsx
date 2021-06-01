@@ -29,7 +29,6 @@ export const MindGame:FC<MindGameProps> =
     )
   );
   myWords.length = (wordCount+1);
-  console.log(myWords)
   const myUniqueWords = [];
   // for (let i = 0; (myWords.length && i !== myWords.length-1); i++ ) {
   //   console.log(myWords[i]?.length)
@@ -52,10 +51,6 @@ export const MindGame:FC<MindGameProps> =
       end: 'беда',
     },
   ]
-  const animate = fakeData.map((_, i) =>`:nth-child(${i}) {
-    animation-delay: ${speed*i*2}s;
-  }`).reduce((x,y)=> x +=(`\n` + y) );
-  console.log(animate)
   return (
     <div className={css`
       ${flexCenter}
