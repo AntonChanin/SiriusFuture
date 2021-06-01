@@ -20,7 +20,7 @@ export const flexCenter = `
   align-content: center;
   align-items: center;
   justify-content: center;
-  justify-items: center
+  justify-items: center;
 `;
 
 export const flexCenterBetween = `
