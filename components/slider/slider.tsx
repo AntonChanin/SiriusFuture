@@ -172,7 +172,7 @@ export const Slider:FC<{numeric: number[]; step: number, handleChange(event: Rea
         <input className={css`
         ${webkitCSS}
         ${mozCSS}
-        `} type="range" min={`${numeric[0]-step}`} step={`${step}`} max={`${numeric[numeric.length - 1]+step}`} onChange={handleChange} />
+        `} type="range" min={`${numeric[0]}`} step={`${step}`} max={`${numeric[numeric.length - 1]}`} onChange={handleChange} />
       </div>
    </div>
 )};

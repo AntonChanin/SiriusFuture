@@ -21,7 +21,6 @@ export const MindGame:FC<MindGameProps> =
   interpLen,
   speed,
 }) => {
-
   const words = getWords(getRandomWords(getElectedWords(wordLen)), wordCount);
   return (
     <div className={css`
@@ -33,6 +32,7 @@ export const MindGame:FC<MindGameProps> =
       { 
         return (<div
         key={i}
+        id={`id#${i}`}
         className={css`
           opacity: 0; 
           position: absolute;

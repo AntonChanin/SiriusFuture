@@ -100,7 +100,7 @@ export const wordsBase = [
 
 export const getElectedWords = (len:number) => wordsBase.filter(el => el.length <= len);
 export const getWords = (arr:any[], wordCount:number) => {
-  return arr.slice(0, wordCount+1).map((word)=>{
+  return arr.slice(0, wordCount).map((word)=>{
     word = word.split('');
     let divine = Math.ceil(1 - 0.5 + Math.random() * (word.length-2));
     let firstPart = word.splice(0, divine).join('');

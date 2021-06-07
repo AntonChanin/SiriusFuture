@@ -68,7 +68,10 @@ function HomePage() {
     </span> сек.
   </>
   return (
-    <>
+    <div className={css`
+      width:1024px;
+      margin: 0 auto;
+    `}>
       <div
         className={css`
           position: absolute;
@@ -195,7 +198,7 @@ function HomePage() {
           />
         </ScaledBox>
       )}
-    </>
+    </div>
   )
 };
     
