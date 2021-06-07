@@ -69,7 +69,7 @@ function HomePage() {
   </>
   return (
     <div className={css`
-      width:1024px;
+      width-max:1024px;
       margin: 0 auto;
     `}>
       <div

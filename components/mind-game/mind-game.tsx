@@ -84,8 +84,8 @@ export const MindGame:FC<MindGameProps> =
     }
       <div
         className={css`
+          width: min-content;
           position: absolute;
-          width: 20%;
           opacity: 0;
           animation: see ${speed}s;
           animation-delay: ${speed*wordCount}s;
